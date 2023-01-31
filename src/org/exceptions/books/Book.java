@@ -11,8 +11,11 @@ public class Book {
 		this.titolo = titolo;
 		verificaTitolo(titolo);
 		this.autore = autore;
+		verificaAutore(autore);
 		this.editore = editore;
+		verificaEditore(editore);
 		this.numeroPagine = numeroPagine;
+		verificaNumeroPagine(numeroPagine);
 	}
 	
 	public void setTitolo ( String titolo) throws Exception {
@@ -26,7 +29,9 @@ public class Book {
 	}
 	
 	
-	public void setNumeroPagine ( int numeroPagine) {
+	public void setNumeroPagine ( int numeroPagine) throws Exception {
+		verificaNumeroPagine(numeroPagine);
+		
 		this.numeroPagine = numeroPagine;
 	}
 	
@@ -35,7 +40,9 @@ public class Book {
 	}
 	
 	
-	public void setAutore ( String autore) {
+	public void setAutore ( String autore) throws Exception {
+		verificaAutore(autore);
+		
 		this.autore = autore;
 	}
 	
@@ -44,7 +51,9 @@ public class Book {
 	}
 	
 	
-	public void setEditore ( String editore) {
+	public void setEditore ( String editore) throws Exception {
+		verificaEditore(editore);
+		
 		this.editore = editore;
 	}
 	
@@ -59,6 +68,32 @@ public class Book {
 		
 		this.titolo = titolo;
 	}
+	
+	public void verificaNumeroPagine(int numeroPagine) throws Exception {
+		if (numeroPagine <= 0) {
+			throw new Exception("NumeroPagine non valido");
+		}
+		
+		this.numeroPagine = numeroPagine;
+	}
+	
+	public void verificaAutore(String autore) throws Exception {
+		if (autore.length() <= 0) {
+			throw new Exception("Autore non valido");
+		}
+		
+		this.autore = autore;
+	}
+	
+	public void verificaEditore(String editore) throws Exception {
+		if (editore.length() <= 0) {
+			throw new Exception("Editore non valido");
+		}
+		
+		this.editore = editore;
+	}
+	
+	
 	
 	
 }
